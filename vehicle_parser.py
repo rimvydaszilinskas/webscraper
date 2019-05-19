@@ -7,7 +7,7 @@ def parse_vehicle(url):
     raw_html = get_url(url)
     if raw_html is None:
         return None
-        
+
     html = BeautifulSoup(raw_html, 'html.parser')
     vehicle = {}
     price_str = re.findall(r'\d+', html.select('div.price')[0].getText())
@@ -130,7 +130,7 @@ def parse_transmission(transmission):
 def parse_defects(defects):
     if defects == 'Be defektų':
         return None
-    elif defects == 'Daužtas':
+    elif defects == 'Daužta':
         return 'Damaged'
     elif defects == 'Degęs':
         return 'Burnt'
